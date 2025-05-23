@@ -2,10 +2,10 @@ import PolicyLayout from "@/components/layout/PolicyLayout";
 
 const CancellationRefundPolicy: React.FC = () => {
   return (
-    <PolicyLayout title="Cancellation & Refund Policy" lastUpdated="March 20, 2025">
+    <PolicyLayout title="Cancellation &amp; Refund Policy" lastUpdated="March 20, 2025">
       <h2 className="text-xl font-semibold mb-4">1. Introduction</h2>
       <p className="mb-4">
-        This Cancellation and Refund Policy outlines the terms and conditions for cancellations and refunds for transactions processed through Razorpay. This policy applies to both merchants using Razorpay's payment processing services and customers making payments through Razorpay.
+        This Cancellation and Refund Policy outlines the terms and conditions for cancellations and refunds for transactions processed through Razorpay. This policy applies to both merchants using Razorpay&apos;s payment processing services and customers making payments through Razorpay.
       </p>
 
       <h2 className="text-xl font-semibold mb-4 mt-8">2. Merchant Cancellation Policy</h2>
@@ -27,9 +27,9 @@ const CancellationRefundPolicy: React.FC = () => {
         Customers who wish to cancel an order or transaction should:
       </p>
       <ul className="list-disc pl-6 mb-4 space-y-2">
-        <li>Contact the merchant directly using the contact information provided on the merchant's website or in the order confirmation.</li>
+        <li>Contact the merchant directly using the contact information provided on the merchant&apos;s website or in the order confirmation.</li>
         <li>Provide the order number, date of purchase, and reason for cancellation.</li>
-        <li>Follow the merchant's specific cancellation procedure as outlined in their policy.</li>
+        <li>Follow the merchant&apos;s specific cancellation procedure as outlined in their policy.</li>
       </ul>
       <p className="mb-4">
         Razorpay is not responsible for handling cancellation requests directly but may assist in facilitating communication between merchants and customers when necessary.
@@ -37,7 +37,7 @@ const CancellationRefundPolicy: React.FC = () => {
 
       <h2 className="text-xl font-semibold mb-4 mt-8">4. Refund Policy for Merchants</h2>
       <p className="mb-4">
-        Merchants using Razorpay's payment processing services are responsible for processing refunds for their customers in accordance with their stated refund policy. Razorpay provides merchants with the tools necessary to process refunds through our platform.
+        Merchants using Razorpay&apos;s payment processing services are responsible for processing refunds for their customers in accordance with their stated refund policy. Razorpay provides merchants with the tools necessary to process refunds through our platform.
       </p>
       <p className="mb-4">
         When processing refunds, merchants should be aware of the following:
@@ -45,8 +45,8 @@ const CancellationRefundPolicy: React.FC = () => {
       <ul className="list-disc pl-6 mb-4 space-y-2">
         <li>Refunds can be processed for up to 90 days after the original transaction date.</li>
         <li>Partial refunds are supported for eligible transactions.</li>
-        <li>Refund processing fees may apply, as outlined in the merchant's agreement with Razorpay.</li>
-        <li>Refunds are typically processed within 5-7 business days, though the actual time for the funds to appear in the customer's account depends on the customer's payment method and financial institution.</li>
+        <li>Refund processing fees may apply, as outlined in the merchant&apos;s agreement with Razorpay.</li>
+        <li>Refunds are typically processed within 5&#8211;7 business days, though the actual time for the funds to appear in the customer&apos;s account depends on the customer&apos;s payment method and financial institution.</li>
       </ul>
 
       <h2 className="text-xl font-semibold mb-4 mt-8">5. Refund Policy for Customers</h2>
@@ -54,12 +54,12 @@ const CancellationRefundPolicy: React.FC = () => {
         Customers seeking a refund for a purchase made through Razorpay should:
       </p>
       <ul className="list-disc pl-6 mb-4 space-y-2">
-        <li>Review the merchant's refund policy before requesting a refund.</li>
+        <li>Review the merchant&apos;s refund policy before requesting a refund.</li>
         <li>Contact the merchant directly with their refund request, including the order number, date of purchase, and reason for the refund.</li>
         <li>Allow the merchant the time specified in their refund policy to process the refund.</li>
       </ul>
       <p className="mb-4">
-        If a customer is unable to resolve a refund issue with a merchant, they may contact Razorpay customer support for assistance. However, Razorpay's ability to intervene in refund disputes is limited by our role as a payment processor.
+        If a customer is unable to resolve a refund issue with a merchant, they may contact Razorpay customer support for assistance. However, Razorpay&apos;s ability to intervene in refund disputes is limited by our role as a payment processor.
       </p>
 
       <h2 className="text-xl font-semibold mb-4 mt-8">6. Automatic Cancellations and Refunds</h2>
@@ -67,7 +67,7 @@ const CancellationRefundPolicy: React.FC = () => {
         In certain circumstances, transactions may be automatically cancelled and refunded:
       </p>
       <ul className="list-disc pl-6 mb-4 space-y-2">
-        <li>Failed or incomplete transactions where the funds were initially debited from the customer's account.</li>
+        <li>Failed or incomplete transactions where the funds were initially debited from the customer&apos;s account.</li>
         <li>Duplicate transactions where a customer was charged multiple times for the same purchase.</li>
         <li>Transactions flagged as fraudulent by our security systems.</li>
         <li>Transactions where the merchant is unable to fulfill the order due to inventory issues or other constraints.</li>
@@ -92,7 +92,7 @@ const CancellationRefundPolicy: React.FC = () => {
 
       <h2 className="text-xl font-semibold mb-4 mt-8">8. Disputes and Chargebacks</h2>
       <p className="mb-4">
-        In the event that a customer is unable to resolve a refund issue directly with a merchant, they may have the right to dispute the charge with their payment provider or bank. This process, known as a chargeback, is governed by the policies of the customer's payment provider.
+        In the event that a customer is unable to resolve a refund issue directly with a merchant, they may have the right to dispute the charge with their payment provider or bank. This process, known as a chargeback, is governed by the policies of the customer&apos;s payment provider.
       </p>
       <p className="mb-4">
         Razorpay will cooperate with all parties involved in a dispute to facilitate a fair resolution. Merchants are advised to maintain detailed records of all transactions, communications with customers, and their stated policies to help resolve disputes efficiently.

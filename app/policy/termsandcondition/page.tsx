@@ -2,18 +2,18 @@ import PolicyLayout from '@/components/layout/PolicyLayout';
 
 const TermsConditions: React.FC = () => {
   return (
-    <PolicyLayout title="Terms & Conditions" lastUpdated="January 15, 2025">
+    <PolicyLayout title="Terms &amp; Conditions" lastUpdated="January 15, 2025">
       <h2 className="text-xl font-semibold mb-4">1. Introduction</h2>
       <p className="mb-4">
-        Welcome to Razorpay. These Terms of Service ("Terms") govern your use of our website, products, and services ("Services"). By accessing or using our Services, you agree to be bound by these Terms. If you disagree with any part of the Terms, you may not access the Services.
+        Welcome to Razorpay. These Terms of Service (&quot;Terms&quot;) govern your use of our website, products, and services (&quot;Services&quot;). By accessing or using our Services, you agree to be bound by these Terms. If you disagree with any part of the Terms, you may not access the Services.
       </p>
 
       <h2 className="text-xl font-semibold mb-4 mt-8">2. Definitions</h2>
       <ul className="list-disc pl-6 mb-4 space-y-2">
-        <li><strong>"Account"</strong> means a unique account created for you to access our Services.</li>
-        <li><strong>"Company"</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Razorpay Software Private Limited.</li>
-        <li><strong>"Customer"</strong> refers to the company, organization or person who signs up to use the Razorpay Services.</li>
-        <li><strong>"Services"</strong> refers to the applications, services, websites, and software offered by Razorpay.</li>
+        <li><strong>&quot;Account&quot;</strong> means a unique account created for you to access our Services.</li>
+        <li><strong>&quot;Company&quot;</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to Razorpay Software Private Limited.</li>
+        <li><strong>&quot;Customer&quot;</strong> refers to the company, organization or person who signs up to use the Razorpay Services.</li>
+        <li><strong>&quot;Services&quot;</strong> refers to the applications, services, websites, and software offered by Razorpay.</li>
       </ul>
 
       <h2 className="text-xl font-semibold mb-4 mt-8">3. Account Registration</h2>
@@ -31,7 +31,7 @@ const TermsConditions: React.FC = () => {
 
       <h2 className="text-xl font-semibold mb-4 mt-8">5. Fees and Charges</h2>
       <p className="mb-4">
-        Razorpay charges fees for the use of its Services. The fees are published on our website and may be updated from time to time. We reserve the right to change our fees upon thirty (30) days' notice. Your continued use of the Services after the fee change becomes effective constitutes your agreement to pay the modified fees.
+        Razorpay charges fees for the use of its Services. The fees are published on our website and may be updated from time to time. We reserve the right to change our fees upon thirty (30) days&#39; notice. Your continued use of the Services after the fee change becomes effective constitutes your agreement to pay the modified fees.
       </p>
 
       <h2 className="text-xl font-semibold mb-4 mt-8">6. Prohibited Activities</h2>
@@ -70,7 +70,7 @@ const TermsConditions: React.FC = () => {
 
       <h2 className="text-xl font-semibold mb-4 mt-8">10. Changes to Terms</h2>
       <p className="mb-4">
-        We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.
+        We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days&#39; notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.
       </p>
 
       <h2 className="text-xl font-semibold mb-4 mt-8">11. Governing Law</h2>
