@@ -188,4 +188,16 @@ function useToast() {
   };
 }
 
-export { useToast, toast };
+type ShowToastOptions = {
+  title: string;
+  description?: string;
+};
+
+function showToast({ title, description }: ShowToastOptions) {
+  toast({
+    title,
+    description,
+  });
+}
+
+export { useToast, toast,showToast };

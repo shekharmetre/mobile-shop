@@ -122,16 +122,16 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-gray-400 mt-0.5" />
                 <p className="text-gray-400">
-                  123 Mobile Street, Tech City, TC 12345
+                  Chidri Road Hanuman Nagar Oppo Petrol Pump Bidar Karnataka 585403
                 </p>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-gray-400" />
-                <p className="text-gray-400">+1 (555) 123-4567</p>
+                <p className="text-gray-400">+91 (903) 609-2942</p>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-gray-400" />
-                <p className="text-gray-400">info@mobilehub.com</p>
+                <p className="text-gray-400">bhagyawantimobile@gmail.com</p>
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@ export default function Footer() {
             <div className="flex space-x-2">
               <Input
                 type="email"
-                placeholder="Your email"
+                placeholder="Your email & mobile number"
                 className="bg-gray-800 border-gray-700 text-white"
               />
               <Button>Subscribe</Button>

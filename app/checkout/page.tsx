@@ -1,10 +1,12 @@
-'use client'
+'use client';
 import dynamic from 'next/dynamic';
 import DummyLocationSearch from "@/components/checkout/search-location";
 import { Button } from "@/components/ui/button";
 const LottieAnimation = dynamic(() => import('@/hooks/lotti-anime'), {
   ssr: false,
 });
+// import { useMutation } from '@tanstack/react-query';
+// import { createRazorpayOrder } from '@/lib/api';
 
 import { ArrowLeft, LocateFixed, MapPin } from "lucide-react";
 import Image from "next/image";
@@ -12,7 +14,6 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import location from "@/public/animte/location.json"
 import { getCurrentLocation } from '@/hooks/get-location';
-// import { getCurrentLocation } from "@/hooks/get-location";
 
 type LocationData = {
   address?: string;
@@ -24,8 +25,8 @@ const Checkout = () => {
   const [isFetching, setIsFetching] = useState(false);
 
   const selectedLocation = (value: string) => {
-    console.log(value)
-  }
+    console.log(value);
+  };
 
   const fetchUserLocation = async () => {
     setIsFetching(true);
@@ -110,9 +111,68 @@ const Checkout = () => {
         )}
       </div>
 
-      <Button className="w-full mt-6 bg-orange-500">Proceed To Payment</Button>
+      {/* <CheckoutButton amount={5000} /> */}
     </div>
   );
 };
 
 export default Checkout;
+
+// ✅ Move this outside
+// const CheckoutButton = ({ amount }: { amount: number }) => {
+//   const mutation = useMutation({
+//     mutationFn: () => createRazorpayOrder(amount),
+//     onSuccess: (orderData) => {
+//       const options = {
+//         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
+//         amount: orderData.amount,
+//         currency: orderData.currency,
+//         name: 'Your Company',
+//         description: 'Payment Test',
+//         order_id: orderData.id,
+//         handler: function (response: any) {
+//           alert('Payment Successful!');
+//           console.log('Payment success', response);
+//         },
+//         prefill: {
+//           name: 'Customer Name',
+//           email: 'customer@example.com',
+//           contact: '9999999999',
+//         },
+//       };
+
+//       const razorpay = new (window as any).Razorpay(options);
+//       razorpay.open();
+//     },
+//     onError: (err) => {
+//       alert('Error creating order');
+//       console.error(err);
+//     },
+//   });
+
+//   const loadRazorpayScript = () => {
+//     return new Promise((resolve) => {
+//       const script = document.createElement('script');
+//       script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+//       script.onload = () => resolve(true);
+//       script.onerror = () => resolve(false);
+//       document.body.appendChild(script);
+//     });
+//   };
+
+//   const handlePayment = async () => {
+//     const loaded = await loadRazorpayScript();
+//     if (!loaded) {
+//       alert('Failed to load Razorpay SDK');
+//       return;
+//     }
+
+//     mutation.mutate(); // Trigger the create order mutation
+//   };
+
+//   return (
+//     <Button onClick={handlePayment} className="w-full mt-6 bg-orange-500">
+//       Proceed To Payment
+//     </Button>
+//   );
+// };
