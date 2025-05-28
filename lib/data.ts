@@ -5,7 +5,7 @@ export const products: Product[] = [
     id: "charger-standard-01",
     name: "Samsung C To C Adapter",
     description: "Reliable and efficient charging for everyday use. Compatible with most Android devices.",
-    price: 12.99,
+    price: 180.00,
     images: [
       "/products-images/samsung-c.png",
     ],
@@ -14,14 +14,14 @@ export const products: Product[] = [
     compatibility: ["Samsung", "Xiaomi", "Oppo"],
     features: ["80 w Output", "Compact Design", "LED Indicator"],
     rating: 4.2,
-    reviews: 125,
+    reviews: 450,
     inStock: true
   },
   {
     id: "charger-original-01",
     name: "Original Samsung Fast Charger",
     description: "Genuine Samsung charger designed specifically for Samsung devices to provide optimal charging performance.",
-    price: 34.99,
+    price: 449.99,
     images: [
       "https://images.pexels.com/photos/1229456/pexels-photo-1229456.jpeg",
       "https://images.pexels.com/photos/12642256/pexels-photo-12642256.jpeg"
@@ -38,7 +38,7 @@ export const products: Product[] = [
     id: "headphones-wired-01",
     name: "Premium Wired Headphones",
     description: "High-fidelity wired headphones with balanced sound profile and comfortable over-ear design.",
-    price: 24.99,
+    price: 120.01,
     images: [
       "https://images.pexels.com/photos/577769/pexels-photo-577769.jpeg",
       "https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg"
@@ -55,8 +55,8 @@ export const products: Product[] = [
     id: "earphones-wireless-01",
     name: "True Wireless Earbuds",
     description: "Compact true wireless earbuds with premium sound quality and long battery life.",
-    price: 49.99,
-    discountPrice: 39.99,
+    price: 599.99,
+    discountPrice: 449.99,
     images: [
       "https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg",
       "https://images.pexels.com/photos/3394660/pexels-photo-3394660.jpeg"
@@ -75,7 +75,7 @@ export const products: Product[] = [
     id: "screen-dplus-01",
     name: "D+ Premium Screen Protector",
     description: "Advanced D+ screen protector with anti-blue light and privacy features.",
-    price: 19.99,
+    price: 149.99,
     images: [
       "https://images.pexels.com/photos/4195325/pexels-photo-4195325.jpeg",
       "https://images.pexels.com/photos/2643698/pexels-photo-2643698.jpeg"
@@ -93,7 +93,7 @@ export const products: Product[] = [
     id: "accessory-popsocket-01",
     name: "Premium PopSocket Grip",
     description: "Stylish and functional phone grip and stand for secure handling of your device.",
-    price: 9.99,
+    price: 3999.99,
     images: [
       "https://images.pexels.com/photos/4846436/pexels-photo-4846436.jpeg",
       "https://images.pexels.com/photos/5386198/pexels-photo-5386198.jpeg"
@@ -110,7 +110,8 @@ export const products: Product[] = [
     id: "accessory-holder-01",
     name: "Car Phone Holder",
     description: "Versatile car mount holder for secure placement of your phone while driving.",
-    price: 15.99,
+    price: 799.99,
+    discountPrice  : 399.99,
     images: [
       "https://images.pexels.com/photos/3068059/pexels-photo-3068059.jpeg",
       "https://images.pexels.com/photos/6647367/pexels-photo-6647367.jpeg"
@@ -127,10 +128,11 @@ export const products: Product[] = [
     id: "og-red-80w-charger",
     name: "OG Red 80W Charger",
     description: "High-power fast charger with 80W output for rapid device charging.",
-    price: 29.99,
+    price: 599.99,
     images: [
       "/products-images/80w.png"
     ],
+    discountPrice : 399.99,
     category: "chargers",
     subcategory: "high-power",
     compatibility: ["Samsung", "OnePlus", "Xiaomi"],
@@ -144,7 +146,8 @@ export const products: Product[] = [
     id: "samsung-c-adapter",
     name: "Samsung C Adapter",
     description: "Official Samsung Type-C adapter for reliable and efficient charging.",
-    price: 24.99,
+    price: 529.99,
+    discountPrice : 419.99,
     images: [
      "/products-images/samsung-c.png"
     ],
@@ -161,7 +164,8 @@ export const products: Product[] = [
     id: "iphone-pd-adapter",
     name: "iPhone PD Adapter",
     description: "Power Delivery (PD) adapter for iPhone devices. Fast and safe charging.",
-    price: 34.99,
+    price: 749.99,
+    discountPrice : 599.99,
     images: [
       "/products-images/iphone.png"
     ],
@@ -178,7 +182,8 @@ export const products: Product[] = [
     id: "3in1-magnetic-cable",
     name: "3-in-1 Magnetic Charging Cable",
     description: "Universal magnetic charging cable compatible with Type-C, Micro USB, and Lightning devices.",
-    price: 14.99,
+    price: 399.99,
+    discountPrice : 249.99,
     images: [
       "/products-images/magnetic.png"
     ],
@@ -195,7 +200,8 @@ export const products: Product[] = [
     id: "powerbank-2000w",
     name: "Power Bank 2000 Watt",
     description: "Ultra high-capacity power bank capable of powering laptops and high-wattage devices.",
-    price: 149.99,
+    price: 1349.99,
+    discountPrice : 999.99,
     images: [
       "/products-images/powerbank.png"
     ],
@@ -212,7 +218,8 @@ export const products: Product[] = [
     id: "selfie-stick",
     name: "Selfie Stick",
     description: "Extendable selfie stick with Bluetooth remote for capturing perfect shots.",
-    price: 9.99,
+    price: 199.99,
+    discountPrice : 49.99,
     images: [
       "/products-images/selfie.png"
     ],
@@ -229,7 +236,8 @@ export const products: Product[] = [
     id: "white-border-glass",
     name: "White Border Glass",
     description: "Premium tempered glass with white border design for full-screen protection.",
-    price: 7.99,
+    price: 150.00,
+    discountPrice : 69.99,
     images: [
       "/products-images/white-glass.png"
     ],
@@ -247,7 +255,7 @@ export const products: Product[] = [
     id: "pubg-fingertips",
     name: "PUBG Fingertips",
     description: "Sweat-proof and sensitive gaming fingertips for precise control in PUBG and other mobile games.",
-    price: 4.99,
+    price: 40.05,
     images: [
       "/products-images/fingertips.png"
     ],
@@ -264,7 +272,7 @@ export const products: Product[] = [
     id: "3-4a-car-charger",
     name: "3.4A Car Charger",
     description: "Fast charging car charger with dual USB ports delivering up to 3.4A output.",
-    price: 11.99,
+    price: 279.99,
     images: [
       "/products-images/car-charger.png"
     ],
@@ -281,7 +289,7 @@ export const products: Product[] = [
     id: "car-bluetooth-reader",
     name: "Car Bluetooth Reader",
     description: "Car Bluetooth receiver and audio adapter for wireless music and hands-free calls.",
-    price: 15.99,
+    price: 150.99,
     images: [
       "/products-images/car-bluetooth.png"
     ],
@@ -298,7 +306,7 @@ export const products: Product[] = [
     id: "samsung-og-earphones",
     name: "Samsung OG Earphones",
     description: "Original Samsung in-ear wired earphones with clear sound and deep bass.",
-    price: 12.99,
+    price: 180.99,
     images: [
       "/products-images/samsung-og-earphone.png"
     ],
@@ -315,7 +323,7 @@ export const products: Product[] = [
     id: "edge-matte-glass",
     name: "Edge Matte Glass",
     description: "Premium matte tempered glass with full edge protection and anti-glare finish.",
-    price: 9.99,
+    price: 249.99,
     images: [
       "/products-images/edge-glass.png"
     ],
@@ -332,7 +340,7 @@ export const products: Product[] = [
     id: "c-to-iphone-connector",
     name: "C to iPhone Connector/Cable",
     description: "Type-C to Lightning connector for fast charging and data transfer for iPhone devices.",
-    price: 14.99,
+    price: 179.99,
     images: [
       "/products-images/iphone-c-cable.png"
     ],
@@ -349,7 +357,7 @@ export const products: Product[] = [
     id: "boat-og-headphone",
     name: "Boat OG Headphone",
     description: "Original Boat wired headphones with powerful bass and clear sound quality.",
-    price: 19.99,
+    price: 799.99,
     images: [
       "/products-images/boat-og.png"
     ],

@@ -44,7 +44,7 @@ export default function AboutPage() {
               Redefining Mobile Shopping Experience
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Since 2016 we&apos;ve been your trusted destination for premium smartphones and accessories.
+              Since 2016 we &apos;ve been your trusted destination for premium smartphones and accessories.
             </p>
           </motion.div>
         </div>
@@ -63,7 +63,7 @@ export default function AboutPage() {
                       The Tale of Our Achievement Story
                     </h2>
                     <p className="text-gray-500 text-base font-normal leading-relaxed lg:text-start text-center">
-                      Our journey is a true testament to perseverance&comma; dedication&comma; and a deep understanding of our customers&apos; needs. For over 16 years&comma; we&apos;ve been at the forefront of the mobile services and accessories industry&comma; delivering 100% quality products that ensure customer satisfaction.
+                      Our journey is a true testament to perseverance &comma; dedication &comma; and a deep understanding of our customers &apos; needs. For over 16 years &comma; we &apos;ve been at the forefront of the mobile services and accessories industry &comma; delivering 100% quality products that ensure customer satisfaction.
                     </p>
                   </div>
                 </div>
@@ -73,7 +73,7 @@ export default function AboutPage() {
                     { title: '16+ Years', desc: 'Influencing Digital Landscapes Together' },
                     { title: '500+ Reviews', desc: 'Genuine Feedback Reflecting Our Trusted Service' },
                     { title: '99% Happy Clients', desc: 'Mirrors our Focus on Client Satisfaction.' },
-                    { title: '3+ Retail Stores', desc: 'Physical Presence That Builds Local Trust &amp; Instant Support.' }
+                    { title: '3+ Retail Stores', desc: 'Physical Presence That Builds Local Trust  &amp; Instant Support.' }
                   ].map((card, idx) => (
                     <div key={idx}
                       className="w-full h-full p-3.5 rounded-xl border border-gray-200 hover:border-gray-400 transition-all duration-700 ease-in-out flex-col justify-start items-start gap-2.5 inline-flex">

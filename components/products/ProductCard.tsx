@@ -42,7 +42,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       transition={{ duration: 0.3 }}
       className="group relative"
     >
-      <div onClick={()=>router.push(`/product/${product.id}`)}>
+      <div onClick={() => router.push(`/product/${product.id}`)}>
         <div
           className={cn(
             "relative overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 transition-all duration-300",
@@ -86,7 +86,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               >
                 <Button
                   size="icon"
-                  variant="secondary"
+                  variant="destructive"
                   className="h-8 w-8 rounded-full bg-white/80 backdrop-blur-sm hover:bg-white dark:bg-gray-900/80 dark:hover:bg-gray-900"
                   onClick={handleToggleFavorite}
                 >
@@ -114,11 +114,11 @@ export default function ProductCard({ product }: ProductCardProps) {
               <div
                 className={cn(
                   "absolute inset-x-0 bottom-0 flex justify-center p-3 transition-all duration-300",
-                  isHovered ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+                  isHovered ? "" : "translate-y-full opacity-0"
                 )}
               >
                 <Button
-                  className="w-full rounded-full bg-primary/90 backdrop-blur-sm hover:bg-primary"
+                  className={`w-full rounded-full bg-primary/90 backdrop-blur-sm ${isHovered && "bg-blue-600"}`}
                   onClick={handleAddToCart}
                 >
                   <ShoppingCart className="mr-2 h-4 w-4" />
@@ -134,7 +134,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                 {product.name}
               </h3>
             </div>
-            
+
             <div className="mt-1 flex items-center">
               <div className="flex items-center">
                 {Array(5)

@@ -158,7 +158,7 @@ export default function ProductPage() {
           </div>
 
           <div className="space-y-4 pt-4">
-            <Button className="w-full" size="lg" onClick={handleAddToCart}>
+            <Button className="w-full " size="lg" onClick={handleAddToCart}>
               Add to Cart
             </Button>
           </div>

@@ -68,8 +68,8 @@ export async function sendContactEmail(data: ContactFormType): Promise<{ success
   }
   try {
     const { data: sendData, error } = await resend.emails.send({
-      from: "Contact Form <admin@bhagyawantimobile.shop>", // your verified domain email
-      to: "bhagyawantimobile@gmail.com", // ✅ your email where you want to receive form submissions
+      from: `Contact Form <${process.env.NEXT_PUBLIC_BUSINESS_MAIL!}>`, // your verified domain email
+      to: process.env.NEXT_PUBLIC_MY_EMAIL!, // ✅ your email where you want to receive form submissions
       subject: 'New Contact Form Submission',
       replyTo: data.Email, // ✅ this lets you reply directly to the user
       react: await ContactEmailTemplate({ email: data.Email, firstName: data.Name, message: data.Message, phone: data.Phone }),

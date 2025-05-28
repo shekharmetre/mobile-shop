@@ -5,9 +5,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'images.pexels.com',
-        // optional:
-        // port: '', 
-        // pathname: '/**', 
+      },
+      {
+        protocol: 'https',
+        hostname: 'pagedone.io',
       },
     ],
   },
