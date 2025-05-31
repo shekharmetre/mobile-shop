@@ -16,11 +16,11 @@ export async function GET(request: Request) {
     const supabase = await createClient()
     const { error } = await supabase.auth.exchangeCodeForSession(code)
     if (!error) {
-      const forwardedHost = request.headers.get('x-forwarded-host')
+      const forwardedHost = "https://www.bhagyawantimobile.shop/"
       const isDev = process.env.NODE_ENV === 'development'
 
       // Use your production domain or fallback to forwarded header
-      const productionHost = 'www.bhagyawantimobile.shop'
+      const productionHost = 'https://www.bhagyawantimobile.shop/'
       const baseRedirect = isDev
         ? 'http://localhost:3000'
         : `https://${forwardedHost || productionHost}`
