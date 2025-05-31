@@ -9,16 +9,21 @@ export function GoogleSubmitButton() {
 
     async function handleGoogleSigin() {
         try {
+            const redirectTo = typeof window !== 'undefined'
+                ? `${window.location.origin}/callback`
+                : 'https://www.bhagyawantimobile.shop/callback'; // fallback for SSR (if needed)
+
             await supabse.auth.signInWithOAuth({
                 provider: "google",
                 options: {
-                    redirectTo: `${location.origin}/callback`,
+                    redirectTo,
                 },
             });
         } catch (error) {
             console.error("Google Sign-in Error:", error);
         }
     }
+
 
     return (
         <button
@@ -69,4 +74,20 @@ export function SigninButton() {
             {pending ? <div>Loading...</div> : <span>Sign in</span>}
         </button>
     );
+}
+export function PasswordSignin() {
+
+    function handleButtonSubmit(e: FormData) {
+        console.log(e)
+    }
+
+    return (
+        <button
+            type="submit"
+            className="w-full py-3 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium flex items-center justify-center space-x-2"
+        >
+            <LogIn className="h-5 w-5" />
+            <span>Sign in</span>
+        </button>
+    )
 }

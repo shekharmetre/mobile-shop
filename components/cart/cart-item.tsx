@@ -7,7 +7,7 @@ import { Minus, Plus, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { Price } from "../ui/price";
 import { cn } from "@/lib/utils";
-import { useToast } from "@/hooks/use-toast";
+import { showToast } from "@/hooks/filtered-toast";
 
 interface cartItems {
       items: CartItem[];
@@ -18,7 +18,6 @@ interface cartItems {
 
 
 export function CartItems({removeItem,updateQuantity,clearCart,items}:cartItems) {
-    const { toast } = useToast();
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -44,16 +43,16 @@ export function CartItems({removeItem,updateQuantity,clearCart,items}:cartItems)
     };
     const handleRemoveItem = (itemId: string, itemName: string) => {
         removeItem(itemId);
-        toast({
-            title: "Item removed",
+        showToast({
+            title: "success",
             description: `${itemName} has been removed from your cart.`,
         });
     };
 
     const handleClearCart = () => {
         clearCart();
-        toast({
-            title: "Cart cleared",
+        showToast({
+            title: "success",
             description: "All items have been removed from your cart.",
         });
     };

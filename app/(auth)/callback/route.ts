@@ -5,9 +5,9 @@ import { cookies } from 'next/headers'
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url)
-    const cookieStore = cookies()
+  const cookieStore = cookies()
   const all = (await cookieStore).getAll();
-  const redirectTo =  (await cookieStore).get("redirectTo")?.value;
+  const redirectTo = (await cookieStore).get("redirectTo")?.value;
   const code = searchParams.get('code')
   // if "next" is in param, use it as the redirect URL
   const next = searchParams.get('next') ?? '/'
@@ -16,16 +16,16 @@ export async function GET(request: Request) {
     const supabase = await createClient()
     const { error } = await supabase.auth.exchangeCodeForSession(code)
     if (!error) {
-      const forwardedHost = request.headers.get('x-forwarded-host') // original origin before load balancer
-      const isLocalEnv = process.env.NODE_ENV === 'development'
-      if (isLocalEnv) {
-        // we can be sure that there is no load balancer in between, so no need to watch for X-Forwarded-Host
-        return NextResponse.redirect(`${origin}${redirectTo}`)
-      } else if (forwardedHost) {
-        return NextResponse.redirect(`https://${forwardedHost}${redirectTo}`)
-      } else {
-        return NextResponse.redirect(`${origin}${redirectTo}`)
-      }
+      const forwardedHost = request.headers.get('x-forwarded-host')
+      const isDev = process.env.NODE_ENV === 'development'
+
+      // Use your production domain or fallback to forwarded header
+      const productionHost = 'www.bhagyawantimobile.shop'
+      const baseRedirect = isDev
+        ? 'http://localhost:3000'
+        : `https://${forwardedHost || productionHost}`
+
+      return NextResponse.redirect(`${baseRedirect}${redirectTo}`)
     }
   }
 

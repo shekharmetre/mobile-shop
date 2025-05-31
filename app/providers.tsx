@@ -1,8 +1,7 @@
 "use client";
-
+import { Toaster } from 'react-hot-toast';
 import { ThemeProvider } from "next-themes";
 import { ReactNode } from "react";
-import { Toaster } from "@/components/ui/toaster";
 import QueryProvider from "@/hooks/providers/query-provider";
 
 export default function Providers({ children }: { children: ReactNode }) {
@@ -10,7 +9,7 @@ export default function Providers({ children }: { children: ReactNode }) {
     <QueryProvider>
       <ThemeProvider attribute="class" defaultTheme="light">
         {children}
-        <Toaster />
+      <Toaster position='bottom-right' />
       </ThemeProvider>
     </QueryProvider>
   );

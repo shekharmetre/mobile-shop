@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import Form from "next/form";
 import { sendContactEmail } from "@/app/(auth)/action";
 import { contactSchema, zodFirstError } from "@/lib/schemas/contactSchema";
-import { showToast } from "@/hooks/use-toast";
+import { showToast } from "@/hooks/filtered-toast";
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -234,7 +234,7 @@ export default function ContactForm({ email, phone }: { email?: string, phone?: 
                 const res = await sendContactEmail(parsed.data);
                   console.log(res);
                 if (!res.success) {
-                    showToast({ title: "Errorsometing wrong", description: "Sebd Message" })
+                    showToast({ title: "Errorsometing wrong", description: "error to send contact mail" })
                     return;
                 }
               

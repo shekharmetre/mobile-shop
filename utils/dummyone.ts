@@ -1,0 +1,81 @@
+// // This is your Prisma schema file,
+// // learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// generator client {
+//   provider = "prisma-client-js"
+//   output   = "../lib/generated/prisma"
+// }
+
+// datasource db {
+//   provider  = "postgresql"
+//   url       = env("DATABASE_URL")
+//   directUrl = env("DIRECT_URL")
+// }
+
+
+// model User {
+//   id          String   @id @default(uuid())
+//   email       String   @unique
+//   password    String
+//   firstName   String
+//   lastName    String
+//   phone       String
+//   address     String?
+//   useLocation Boolean?
+//   createdAt   DateTime @default(now())
+//   updatedAt   DateTime @updatedAt
+
+// }
+
+// enum Category {
+//   chargers
+//   cables
+//   audio
+//   protection
+//   accessories
+//   adapters
+//   gaming
+//   mobile
+//   sim
+//   powerbanks
+// }
+
+// model Product {
+//   id            String   @id @default(uuid())
+//   name          String
+//   description   String
+//   price         Float
+//   discountPrice Float?
+//   images        String[] // Prisma supports array types on Postgres
+//   category      Category
+//   subcategory   String
+//   compatibility String[] @default([])
+//   features      String[] @default([])
+//   rating        Float
+//   reviews       Int
+//   inStock       Boolean
+//   isNew         Boolean? @default(false)
+//   isFeatured    Boolean? @default(false)
+//   isLatest      Boolean? @default(false)
+
+//   // Relations (if you want to relate to CartItem)
+//   cartItems CartItem[]
+// }
+
+// model CartItem {
+//   id        String  @id @default(uuid())
+//   product   Product @relation(fields: [productId], references: [id])
+//   productId String
+//   quantity  Int
+// }
+
+// model CategoryInfo {
+//   id          String   @id @default(uuid())
+//   name        String
+//   slug        Category @unique
+//   description String
+//   image       String
+// }

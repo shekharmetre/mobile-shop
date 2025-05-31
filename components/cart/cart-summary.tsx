@@ -1,5 +1,4 @@
 'use client'
-import { useToast } from "@/hooks/use-toast";
 import { checkUserLoggedIn } from "@/lib/query-functions";
 import { Separator } from "@radix-ui/react-separator"
 import { useQuery } from "@tanstack/react-query";
@@ -7,6 +6,7 @@ import { motion } from "framer-motion"
 import { Button } from "../ui/button";
 import { useCartStore } from "@/store/cart";
 import Cookies from 'js-cookie';
+import { showToast } from "@/hooks/filtered-toast";
 
 export function CartSummary() {
     const { totalItems, totalPrice, } = useCartStore();
@@ -18,8 +18,6 @@ export function CartSummary() {
 
     const shipping = calculateShipping();
     const finalTotal = totalPrice + shipping;
-
-    const { toast } = useToast();
 
     const { refetch, isFetching } = useQuery({
         queryKey: ['check-login'],
@@ -33,13 +31,13 @@ export function CartSummary() {
             const result = await refetch();
 
             if (result.isSuccess && result.data.loggedIn) {
-                // Small delay so user can see the toast before redirect
+                // Small delay so user can see the showToast before redirect
                 setTimeout(() => {
                     window.location.href = '/checkout';
                 }, 1000);
             } else {
                 Cookies.set("redirectTo", "/checkout", { secure: true, sameSite: 'Lax' });
-                toast({ title: "Error", description: "You must be logged in to proceed to checkout." })
+                showToast({ title: "Error", description: "You must be logged in to proceed to checkout." })
                 setTimeout(() => {
                     window.location.href = '/login?redirect=/checkout';
                 }, 1000);
@@ -50,7 +48,7 @@ export function CartSummary() {
                 sameSite: "Lax",
                 path: "/"
             });
-            toast({ title: "Error", description: "Failed to check login status. Please log in." })
+            showToast({ title: "Error", description: "Failed to check login status. Please log in." })
             setTimeout(() => {
                 window.location.href = '/login?redirect=/checkout';
             }, 1000);
