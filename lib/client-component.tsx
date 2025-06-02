@@ -1,27 +1,31 @@
 'use client'
 
 import { supabse } from '@/config/supbase-client';
+import { usePopupStore } from '@/store/usePopupStore';
 import { LogIn } from 'lucide-react';
 import { useFormStatus } from 'react-dom'; // ✅ New import
 
 export function GoogleSubmitButton() {
     const { pending } = useFormStatus(); // ✅ useFormStatus replaces isSubmitting
+    const openPopup  = usePopupStore((s) => s.openPopup);
 
     async function handleGoogleSigin() {
-        try {
-            const redirectTo = typeof window !== 'undefined'
-                ? `${window.location.origin}/callback`
-                : 'https://www.bhagyawantimobile.shop/callback'; // fallback for SSR (if needed)
+        console.log("hell orld")
+        openPopup("Google Login Feature Under contstruct","we will avail soon")
+        // try {
+        //     const redirectTo = typeof window !== 'undefined'
+        //         ? `${window.location.origin}/callback`
+        //         : 'https://www.bhagyawantimobile.shop/callback'; // fallback for SSR (if needed)
 
-            await supabse.auth.signInWithOAuth({
-                provider: "google",
-                options: {
-                    redirectTo,
-                },
-            });
-        } catch (error) {
-            console.error("Google Sign-in Error:", error);
-        }
+        //     await supabse.auth.signInWithOAuth({
+        //         provider: "google",
+        //         options: {
+        //             redirectTo,
+        //         },
+        //     });
+        // } catch (error) {
+        //     console.error("Google Sign-in Error:", error);
+        // }
     }
 
 

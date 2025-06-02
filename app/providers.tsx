@@ -3,10 +3,12 @@ import { Toaster } from 'react-hot-toast';
 import { ThemeProvider } from "next-themes";
 import { ReactNode } from "react";
 import QueryProvider from "@/hooks/providers/query-provider";
+import Popup from '@/hooks/popup';
 
 export default function Providers({ children }: { children: ReactNode }) {
   return (
     <QueryProvider>
+       <Popup />
       <ThemeProvider attribute="class" defaultTheme="light">
         {children}
       <Toaster position='bottom-right' />

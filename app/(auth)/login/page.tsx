@@ -6,12 +6,14 @@ import { useState } from "react";
 import { useMutation } from '@tanstack/react-query';
 import axios from "axios";
 import { showToast } from "@/hooks/filtered-toast";
-import { useRouter } from "next/navigation";
+import {  useRouter,usePathname } from "next/navigation";
 import { GoogleSubmitButton } from "@/lib/client-component";
+import { supabse } from "@/config/supbase-client";
 
 const LoginPage = () => {
+  const pathname = usePathname()
   const router = useRouter();
-
+  const redirect = pathname || "/"
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -26,12 +28,29 @@ const LoginPage = () => {
       const res = await axios.post('/api/auth/login', form);
       return res.data;
     },
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
+      if (data.session) {
+        // Set session on client so Supabase knows you're logged in
+        const { error } = await supabse.auth.setSession({
+          access_token: data.session.access_token,
+          refresh_token: data.session.refresh_token,
+        });
+
+        if (error) {
+          showToast({
+            title: "Session Error",
+            description: error.message,
+          });
+          return;
+        }
+      }
+
       showToast({
-        title: "success",
+        title: "Success",
         description: data.message,
       });
-      router.push("/");
+
+      router.push(redirect || "/");
     },
     onError: (error: any) => {
       if (error?.response?.data?.message === "Email not confirmed") {
@@ -53,9 +72,9 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
+    <div className="h-full bg-gradient-to-b from-gray-900 via-gray-800 to-black flex items-center justify-center p-4">
+      <div className="w-full max-w-md h-full">
+        <div className="text-center mb-20">
           <Link href="/" className="inline-block">
             <LogIn className="h-12 w-12 text-blue-500" />
           </Link>
@@ -112,9 +131,10 @@ const LoginPage = () => {
             <LogIn className="h-5 w-5" />
             <span>{isPending ? 'Signing in...' : 'Sign in'}</span>
           </button>
-
-          <GoogleSubmitButton />
         </form>
+        <div className="mt-6">
+          <GoogleSubmitButton />
+        </div>
 
         <p className="mt-6 text-center text-sm text-gray-400">
           Dont have an account?{" "}
