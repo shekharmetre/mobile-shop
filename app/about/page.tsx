@@ -75,7 +75,7 @@ export default function AboutPage() {
                     { title: '99% Happy Clients', desc: 'Mirrors our Focus on Client Satisfaction.' },
                     { title: '3+ Retail Stores', desc: 'Physical Presence That Builds Local Trust  &amp; Instant Support.' }
                   ].map((card, idx) => (
-                    <div key={idx}
+                    <div key={card.desc}
                       className="w-full h-full p-3.5 rounded-xl border border-gray-200 hover:border-gray-400 transition-all duration-700 ease-in-out flex-col justify-start items-start gap-2.5 inline-flex">
                       <h4 className="text-gray-900 text-2xl font-bold font-manrope leading-9">{card.title}</h4>
                       <p className="text-gray-500 text-base font-normal leading-relaxed">{card.desc}</p>
@@ -116,7 +116,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {features.map((feature, index) => (
               <motion.div
-                key={index}
+                key={feature.title}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.2 }}

@@ -1,0 +1,1 @@
+1 >-- On the api/orders/[txnid]/route.ts_____ here problem is i am not able to use get APi method so i use post method why mean i am not able to get params from get request url.

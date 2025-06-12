@@ -10,7 +10,7 @@ const CheckoutLayout: React.FC<CheckoutLayoutProps> = ({ children }) => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 max-w-7xl mx-auto">
       <div>{children}</div>
       <div className="md:sticky md:top-4 h-fit">
-        <CartSummary />
+        <CartSummary buttonText="Procceed To Payment" />
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import FeaturedProducts from "@/components/home/FeaturedProducts";
 import Categories from "@/components/home/Categories";
 import Testimonials from "@/components/home/Testimonials";
 import { Latest } from "@/components/home/Latest";
+import ShopBrandsDemo from "@/components/home/shop-by-brand";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Categories />
       <Latest />
       <FeaturedProducts />
+      <ShopBrandsDemo />
       <Testimonials />
     </div>
   );

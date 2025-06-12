@@ -4,7 +4,9 @@ import { createClient } from '@/utils/supabase/server'
 import { cookies } from 'next/headers'
 
 export async function GET(request: Request) {
-  const { searchParams, origin } = new URL(request.url)
+  const url = new URL(request.url, `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}`)
+  const searchParams = url.searchParams
+  const origin = url.origin
   const cookieStore = cookies()
   const all = (await cookieStore).getAll();
   const redirectTo = (await cookieStore).get("redirectTo")?.value;

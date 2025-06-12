@@ -1,17 +1,15 @@
 'use client';
 
-import { createBrowserClient } from '@supabase/ssr';
 import { Separator } from "@radix-ui/react-separator";
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
 import { useCartStore } from "@/store/cart";
-import Cookies from 'js-cookie';
 import { showToast } from "@/hooks/filtered-toast";
 import { useState } from 'react';
 import { createClient } from '@/utils/supabase/client';
 import { usePathname, useRouter } from 'next/navigation';
 
-export function CartSummary() {
+export function CartSummary({ buttonText = "Proceed To Checkout" }: { buttonText?: string }) {
   const supabase = createClient()
   const { totalItems, totalPrice } = useCartStore();
   const [loading, setLoading] = useState(false);
@@ -88,7 +86,7 @@ export function CartSummary() {
           </div>
         </div>
         <Button onClick={handleCheckout} disabled={loading} className="w-full mb-3" size="lg">
-          {loading ? 'Checking...' : "Proceed to Checkout"}
+          {loading ? 'Checking...' : buttonText}
         </Button>
         <div className="text-center text-xs text-muted-foreground">
           Taxes calculated at checkout

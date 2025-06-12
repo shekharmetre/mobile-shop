@@ -4,15 +4,20 @@ import { ThemeProvider } from "next-themes";
 import { ReactNode } from "react";
 import QueryProvider from "@/hooks/providers/query-provider";
 import Popup from '@/hooks/popup';
+import { ModalProvider } from '@/hooks/universal-popup';
 
 export default function Providers({ children }: { children: ReactNode }) {
   return (
     <QueryProvider>
-       <Popup />
+
+      <Popup />
       <ThemeProvider attribute="class" defaultTheme="light">
-        {children}
-      <Toaster position='bottom-right' />
+        <ModalProvider>
+          {children}
+        </ModalProvider>
+        <Toaster position='bottom-right' />
       </ThemeProvider>
+
     </QueryProvider>
   );
 }

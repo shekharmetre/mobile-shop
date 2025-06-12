@@ -1,67 +1,105 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { prisma } from '@/config/prisma';
 import { createClient } from '@/utils/supabase/server';
+import { safeQuery } from '@/lib/db/safeQuery';
 
 export async function POST(req: Request) {
-    const supabase = await createClient();
+  const supabase = await createClient();
 
-    const {firstName,lastName,email,password,phone,address,useLocation} = await req.json();
-    console.log("revealed dafksdfaj", firstName,lastName,email,password,phone,address,useLocation)
+  try {
+    const body = await req.json();
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      phone,
+      address,
+      useLocation,
+    } = body;
 
-      try {
-        // Check if user exists
-        const existingUser = await prisma.user.findUnique({ where: { email: email } });
-        if (existingUser) {
-          return NextResponse.json(
-            { success: false, message: 'User already exists' },
-            { status: 409 } // Conflict
-          );
-        }
+    if (!email || !password || !firstName) {
+      return NextResponse.json(
+        {
+          success: false,
+          errorType: 'missing_fields',
+          message: 'Required fields missing: email, password, or first name.',
+        },
+        { status: 400 }
+      );
+    }
 
-        // Supabase Auth signup
-        const { data: authData, error: authError } = await supabase.auth.signUp({
-          email: email,
-          password: password,
-        });
+    // ✅ Safe DB check for existing user
+    const existingUser = await safeQuery(() =>
+      prisma.user.findUnique({ where: { email } })
+    );
 
-        if (authError || !authData) {
-          return NextResponse.json(
-            { success: false, message: authError?.message || 'Authentication failed' },
-            { status: 401 }
-          );
-        }
+    if (existingUser) {
+      return NextResponse.json(
+        {
+          success: false,
+          errorType: 'user_exists',
+          message: 'User already exists with this email.',
+        },
+        { status: 409 }
+      );
+    }
 
-        // Create user in Prisma DB
-        const createdUser = await prisma.user.create({data:{firstName,lastName,email,password,phone,address,useLocation}});
+    // ✅ Supabase auth signup
+    const { data: authData, error: authError } = await supabase.auth.signUp({
+      email,
+      password,
+    });
 
-        if (!createdUser) {
-          return NextResponse.json(
-            { success: false, message: 'Failed to create user in database' },
-            { status: 500 }
-          );
-        }
+    if (authError || !authData?.user?.id) {
+      return NextResponse.json(
+        {
+          success: false,
+          errorType: 'supabase_signup_error',
+          message: authError?.message || 'Authentication failed.',
+        },
+        { status: 401 }
+      );
+    }
 
-        return NextResponse.json(
-          { success: true, message: 'User registered successfully', userId: createdUser.id },
-          { status: 201 }
-        );
-      } catch (err: any) {
-        console.error('Signup error:', err);
-        return NextResponse.json(
-          { success: false, message: 'Internal server error', error: err.message },
-          { status: 500 }
-        );
-      }
-}
+    // ✅ Safe user creation in your DB
+    const createdUser = await safeQuery(() =>
+      prisma.user.create({
+        data: {
+          firstName,
+          lastName,
+          email,
+          password, // ⚠️ Optional: hash this if used later
+          phone,
+          address,
+          useLocation,
+          authId: authData.user?.id,
+        },
+      })
+    );
 
+    return NextResponse.json(
+      {
+        success: true,
+        message: 'User registered successfully.',
+        userId: createdUser.id,
+      },
+      { status: 201 }
+    );
+  } catch (err) {
+    console.error('Signup error:', err);
 
-export async function GET(request: Request) {
-    // const supabase = await createClient()
-
-    // const { error, data: { user } } = await supabase.auth.getUser();
-
-    // if (error || !user) {
-    //     return NextResponse.json({ loggedIn: false }, { status: 401 });
-    // }
-    return NextResponse.json({ loggedIn: true, message: "succcesfully get" });
+    return NextResponse.json(
+      {
+        success: false,
+        errorType: 'server_error',
+        message:
+          err instanceof Error && err.message.includes('Database operation failed')
+            ? 'Our systems are temporarily unavailable. Please try again later.'
+            : 'Internal server error.',
+        error: err instanceof Error ? err.message : 'Unknown error',
+      },
+      { status: 500 }
+    );
+  }
 }

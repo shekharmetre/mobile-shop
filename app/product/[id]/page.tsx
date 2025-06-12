@@ -8,13 +8,6 @@ import { Star, Truck, Shield, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { Price } from "@/components/ui/price";
 import { products } from "@/lib/data";
 import { useCartStore } from "@/store/cart";
@@ -67,7 +60,7 @@ export default function ProductPage() {
 
           <div className="grid grid-cols-4 gap-2">
             {product.images.map((image, index) => (
-              <button
+              <Button
                 key={index}
                 className={cn(
                   "relative aspect-square overflow-hidden rounded-md",
@@ -84,7 +77,7 @@ export default function ProductPage() {
                   className="object-cover"
                   sizes="100px"
                 />
-              </button>
+              </Button>
             ))}
           </div>
         </motion.div>
